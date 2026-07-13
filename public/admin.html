@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin | HAK Market</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="/js/admin.js"></script>
+  </head>
+  <body class="admin-page">
+    <header class="site-header admin-header">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/assets/logohak1.png" height="80" width="80" alt="HAK Market Logo">
+        <span>HAK Market</span>
+      </a>
+      <nav class="site-nav" aria-label="Adminnavigation">
+        <a href="/">Oeffentliche Seite</a>
+      </nav>
+    </header>
+
+    <main class="admin-shell">
+      <section class="admin-panel" id="loginPanel">
+        <div class="panel-heading">
+          <p class="eyebrow">Adminbereich</p>
+          <h1>Einloggen</h1>
+        </div>
+        <form class="form" id="loginForm">
+          <label>
+            Passwort
+            <input type="password" name="password" autocomplete="current-password" required>
+          </label>
+          <button class="button primary" type="submit">Einloggen</button>
+          <p class="form-message" id="loginMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section class="admin-panel" id="uploadPanel" hidden>
+        <div class="panel-heading row-heading">
+          <div>
+            <p class="eyebrow">Flyerverwaltung</p>
+            <h1>PDF-Flyer hochladen</h1>
+          </div>
+          <button class="button secondary" id="logoutButton" type="button">Abmelden</button>
+        </div>
+
+        <form class="form upload-form" id="uploadForm">
+          <label>
+            Titel
+            <input type="text" name="title" value="Aktueller Wochenflyer" required>
+          </label>
+          <label>
+            Kurzbeschreibung
+            <textarea name="description" rows="3" placeholder="z. B. Angebote bis Samstag"></textarea>
+          </label>
+          <label>
+            Gueltig bis
+            <input type="date" name="validUntil">
+          </label>
+          <label>
+            PDF-Datei
+            <input type="file" name="flyer" accept="application/pdf,.pdf" required>
+          </label>
+          <button class="button primary" type="submit">Flyer hochladen</button>
+          <p class="form-message" id="uploadMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section class="admin-panel" id="listPanel" hidden>
+        <div class="panel-heading">
+          <p class="eyebrow">Verfuegbare Flyer</p>
+          <h2>Hochgeladene PDFs</h2>
+        </div>
+        <div class="admin-list" id="adminFlyerList"></div>
+        <p class="empty-state" id="adminEmptyState" hidden>Noch keine Flyer hochgeladen.</p>
+      </section>
+    </main>
+  </body>
+</html>

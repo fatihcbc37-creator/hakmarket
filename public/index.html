@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hak Market</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="module" src="/js/main.js"></script>
+  </head>
+  <body class="public-page">
+    <header class="site-header">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="./assets/logohak1.png" height="80px" width="80px" alt="Hak Market Logo">
+        <span>Hak Market</span>
+      </a>
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <a href="#start">Start</a>
+        <a href="#sortiment">Sortiment</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="/admin.html">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section home-section" id="start">
+        <div class="home-copy">
+          <p class="eyebrow">Hak Market</p>
+          <h1>Frische Lebensmittel und aktuelle Angebote</h1>
+          <p>Hak Market ist Ihr Supermarkt für den schnellen Wocheneinkauf, frische Produkte und wechselnde Angebote. Unsere aktuellen Flyer finden Sie direkt online.</p>
+          <div class="home-actions">
+            <a class="button primary" href="#sortiment">Flyer ansehen</a>
+          </div>
+        </div>
+
+        <div class="store-info">
+          <section class="info-panel">
+            <p class="eyebrow">Öffnungszeiten</p>
+            <dl class="hours-list">
+              <div>
+                <dt>Montag - Samstag</dt>
+                <dd>08:00 - 19:00 Uhr</dd>
+              </div>
+              <div>
+                <dt>Sonntag</dt>
+                <dd>10:00 - 16:00 Uhr (Nur mit Mitgliedskarte)</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="info-panel">
+            <p class="eyebrow">Standort</p>
+            <address>
+              Hak Market<br>
+              Veldener Straße 63<br>
+              52349 Düren
+            </address>
+          </section>
+        </div>
+      </section>
+
+      <section class="section assortment-section" id="sortiment">
+        <div class="section-heading">
+          <p class="eyebrow">Sortiment</p>
+        </div>
+        <div class="assortment-grid">
+          <article class="feature">
+            <span>Obst & Gemüse</span>
+            <p>Frische Ware für den Alltag, saisonal ausgewaehlt.</p>
+          </article>
+          <article class="feature">
+            <span>Backwaren</span>
+            <p>Brot, Fladenbrot und Kleingebäck für Frühstück, Pause und Abendessen.</p>
+          </article>
+          <article class="feature">
+            <span>Lebensmittel</span>
+            <p>Grundnahrungsmittel, Getränke, Tiefkühlware und Haushaltsbedarf.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section flyers-section" id="angebote">
+        <div class="section-heading">
+          <p class="eyebrow">Aktuelle Prospekte</p>
+          <h2>Aktuelle Angebote</h2>
+        </div>
+        <div class="flyer-grid" id="flyerGrid" aria-live="polite"></div>
+        <p class="empty-state" id="emptyState" hidden>Aktuell ist noch kein Flyer verfuegbar.</p>
+      </section>
+
+      <section class="section contact-section" id="kontakt">
+        <div class="section-heading">
+          <p class="eyebrow">Kontakt</p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-map" aria-label="Standortkarte">
+            <iframe
+              title="Standort von Hak Market"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.180175817309!2d6.4713878770087865!3d50.809300371663056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf684129aa757d%3A0x41a4a9edd942d0b3!2sVeldener%20Str.%2063%2C%2052349%20D%C3%BCren-Birkesdorf!5e0!3m2!1sen!2sde!4v1783817421443!5m2!1sen!2sde"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+
+          <div class="contact-side">
+            <div class="contact-details">
+              <section class="info-panel">
+                <p class="eyebrow">Direktkontakt</p>
+                <p>Telefon: <a href="tel:+491234567890">01234 567890</a></p>
+                <p>E-Mail: <a href="mailto:info@hak-market.de">info@hak-market.de</a></p>
+                <p>Adresse: Veldener Straße 63, 52349 Düren</p>
+              </section>
+              <section class="info-panel">
+                <p class="eyebrow">Social Media</p>
+                <div class="social-links">
+                  <a href="#" aria-label="HAK Market auf Instagram">Instagram</a>
+                  <a href="#" aria-label="HAK Market auf Facebook">Facebook</a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>Hak Market</strong>
+        <p>Musterstrasse 12, 12345 Musterstadt</p>
+      </div>
+      <div>
+        <p>Mo-Sa 08:00-20:00 Uhr</p>
+        <p>Telefon: 01234 567890</p>
+      </div>
+    </footer>
+  </body>
+</html>
