@@ -8,16 +8,55 @@ const app = express();
 const PORT = process.env.PORT || 5050;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
 const ROOT = __dirname;
-const DATA_FILE = path.join(ROOT, "data", "flyers.json");
-const FLYER_DIR = path.join(ROOT, "uploads", "flyers");
+const STORAGE_ROOT = path.resolve(process.env.STORAGE_DIR || process.env.RAILWAY_VOLUME_MOUNT_PATH || ROOT);
+const DATA_FILE = path.join(STORAGE_ROOT, "data", "flyers.json");
+const FLYER_DIR = path.join(STORAGE_ROOT, "uploads", "flyers");
+const SEED_DATA_FILE = path.join(ROOT, "data", "flyers.json");
+const SEED_FLYER_DIR = path.join(ROOT, "uploads", "flyers");
 
 app.use(express.json());
 app.use(express.static(path.join(ROOT, "public")));
 app.use("/flyers", express.static(FLYER_DIR));
 
+async function pathExists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function seedStorageFromRepo() {
+  if (STORAGE_ROOT === ROOT) {
+    return;
+  }
+
+  if (!(await pathExists(DATA_FILE)) && (await pathExists(SEED_DATA_FILE))) {
+    await fs.copyFile(SEED_DATA_FILE, DATA_FILE);
+  }
+
+  const existingFiles = await fs.readdir(FLYER_DIR);
+  if (existingFiles.some((file) => file !== ".gitkeep")) {
+    return;
+  }
+
+  if (!(await pathExists(SEED_FLYER_DIR))) {
+    return;
+  }
+
+  const seedFiles = await fs.readdir(SEED_FLYER_DIR, { withFileTypes: true });
+  await Promise.all(
+    seedFiles
+      .filter((entry) => entry.isFile() && entry.name !== ".gitkeep")
+      .map((entry) => fs.copyFile(path.join(SEED_FLYER_DIR, entry.name), path.join(FLYER_DIR, entry.name)))
+  );
+}
+
 async function ensureStorage() {
   await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
   await fs.mkdir(FLYER_DIR, { recursive: true });
+  await seedStorageFromRepo();
 
   try {
     await fs.access(DATA_FILE);
@@ -138,5 +177,6 @@ ensureStorage().then(() => {
   app.listen(PORT, () => {
     console.log(`Supermarkt-Webseite laeuft auf http://localhost:${PORT}`);
     console.log(`Adminseite: http://localhost:${PORT}/admin.html`);
+    console.log(`Speicherpfad: ${STORAGE_ROOT}`);
   });
 });
