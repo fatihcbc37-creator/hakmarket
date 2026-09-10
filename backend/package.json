@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "express": "^4.19.2",
-    "multer": "^2.2.0"
+    "multer": "^2.2.0",
+    "pg": "^8.23.0"
   },
   "engines": {
     "node": ">=18"

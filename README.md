@@ -8,16 +8,17 @@ Node.js/Express-Webseite fuer einen Supermarkt mit oeffentlicher Flyer-Anzeige u
 - `backend/`: Express-Server, API-Routen, lokale Flyer-Daten und Uploads
 - `frontend/package.json`: Frontend-Abhaengigkeiten, aktuell PDF.js
 - `backend/package.json`: Backend-Abhaengigkeiten, aktuell Express und Multer
-- `package.json`: npm-Workspaces und Startskripte fuer das Projekt aus dem Root-Ordner
+- `package.json`: Startskripte fuer das Projekt aus dem Root-Ordner
 
 ## Start
 
 ```bash
-npm install
+npm --prefix backend install
+npm --prefix frontend install
 npm run dev
 ```
 
-`npm install` installiert die Abhaengigkeiten der Workspaces `frontend` und `backend`.
+Backend und Frontend haben jeweils eigene `package-lock.json`-Dateien.
 
 Standard-URLs:
 
@@ -46,7 +47,7 @@ Die App ist fuer Railway vorbereitet. Lokal bleibt der Speicher wie bisher im Pr
 
 Railway-Einstellungen:
 
-- Build Command: `npm install`
+- Build Command: `npm --prefix backend install`
 - Start Command: `npm start`
 - Volume Mount Path: `/data`
 - Variable `STORAGE_DIR`: `/data`
