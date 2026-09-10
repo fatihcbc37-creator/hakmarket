@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "PORT=5051 node --watch server.js"
+    "dev": "ADMIN_PASSWORD=admin123 PORT=5051 node --watch server.js"
   },
   "dependencies": {
     "express": "^4.19.2",
