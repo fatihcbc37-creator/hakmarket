@@ -2,6 +2,12 @@
 
 Node.js/Express-Webseite fuer einen Supermarkt mit oeffentlicher Flyer-Anzeige und Adminbereich fuer PDF-Uploads.
 
+## Struktur
+
+- `frontend/`: HTML, CSS, Browser-JavaScript, Bilder und PDF.js-Dateien
+- `backend/`: Express-Server, API-Routen, lokale Flyer-Daten und Uploads
+- `package.json`: Startskripte fuer das Projekt aus dem Root-Ordner
+
 ## Start
 
 ```bash
@@ -28,7 +34,7 @@ Das Demo-Passwort ist `admin123`. Fuer den Betrieb sollte es per Umgebungsvariab
 ADMIN_PASSWORD=ein-sicheres-passwort npm start
 ```
 
-PDFs werden in `uploads/flyers` gespeichert. Die Flyer-Metadaten liegen in `data/flyers.json`.
+PDFs werden lokal in `backend/uploads/flyers` gespeichert. Die Flyer-Metadaten liegen in `backend/data/flyers.json`.
 
 ## Railway Deployment
 
