@@ -6,7 +6,9 @@ Node.js/Express-Webseite fuer einen Supermarkt mit oeffentlicher Flyer-Anzeige u
 
 - `frontend/`: HTML, CSS, Browser-JavaScript, Bilder und PDF.js-Dateien
 - `backend/`: Express-Server, API-Routen, lokale Flyer-Daten und Uploads
-- `package.json`: Startskripte fuer das Projekt aus dem Root-Ordner
+- `frontend/package.json`: Frontend-Abhaengigkeiten, aktuell PDF.js
+- `backend/package.json`: Backend-Abhaengigkeiten, aktuell Express und Multer
+- `package.json`: npm-Workspaces und Startskripte fuer das Projekt aus dem Root-Ordner
 
 ## Start
 
@@ -14,6 +16,8 @@ Node.js/Express-Webseite fuer einen Supermarkt mit oeffentlicher Flyer-Anzeige u
 npm install
 npm run dev
 ```
+
+`npm install` installiert die Abhaengigkeiten der Workspaces `frontend` und `backend`.
 
 Standard-URLs:
 
